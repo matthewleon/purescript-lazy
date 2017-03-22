@@ -3,6 +3,8 @@
   "scripts": {
     "clean": "rimraf output && rimraf .pulp-cache",
     "build": "eslint src && pulp build -- --censor-lib --strict"
+    "test": "rimraf bower_components/purescript-lazy && pulp test",
+    "qa": "pulp browserify -O -m 'Test.Main' > qa/test.js"
   },
   "devDependencies": {
     "eslint": "^3.17.1",
