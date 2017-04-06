@@ -24,8 +24,8 @@
     "purescript-monoid": "^3.0.0"
   },
   "devDependencies": {
-    "purescript-lists": "^3.4.0",
-    "purescript-console-browser-specific": "^0.0.1",
-    "purescript-assert": "^2.0.0"
+    "purescript-lists": "^4.0.1",
+    "purescript-assert": "^3.0.0",
+    "purescript-console-browser-specific": "^1.0.0"
   }
 }

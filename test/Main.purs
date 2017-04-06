@@ -9,7 +9,7 @@ import Test.Assert (ASSERT)
 
 import Data.List.Lazy as L
 
-main :: forall eff. Eff (assert :: ASSERT, console :: CONSOLE, err :: EXCEPTION | eff) Unit
+main :: forall eff. Eff (assert :: ASSERT, console :: CONSOLE, exception :: EXCEPTION | eff) Unit
 main = do
   profile
   let longList = L.range 1 1000000
