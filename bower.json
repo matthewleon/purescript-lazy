@@ -26,6 +26,7 @@
   "devDependencies": {
     "purescript-lists": "^4.0.1",
     "purescript-assert": "^3.0.0",
-    "purescript-console-browser-specific": "^1.0.0"
+    "purescript-console": "^3.0.0",
+    "purescript-exceptions": "^3.0.0"
   }
 }
