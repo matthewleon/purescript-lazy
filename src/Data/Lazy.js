@@ -1,14 +1,13 @@
 "use strict";
 
 exports.defer = function (thunk) {
-  var v = null;
   return function() {
-    if (thunk === undefined) return v;
-
-    v = thunk();
-    thunk = undefined;
-    return v;
-  }
+    var result = thunk();
+    thunk = function() {
+      return result;
+    };
+    return result;
+  };
 };
 
 exports.force = function (l) {
