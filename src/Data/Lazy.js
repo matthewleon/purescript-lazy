@@ -1,29 +1,18 @@
 "use strict";
 
-exports.defer = function () {
-
-  function Defer(thunk) {
-    if (this instanceof Defer) {
-      this.thunk = thunk;
-      return this;
-    } else {
-      return new Defer(thunk);
+exports.defer = function(thunk) {
+  return [
+    thunk,
+    undefined,
+    function() {
+      if (this[1] !== undefined) return this[1];
+      this[1] = this[0]();
+      this[0] = undefined;
+      return this[1];
     }
-  }
+  ];
+};
 
-  Defer.prototype.force = function () {
-    var value = this.thunk();
-    this.thunk = null;
-    this.force = function () {
-      return value;
-    };
-    return value;
-  };
-
-  return Defer;
-
-}();
-
-exports.force = function (l) {
-  return l.force();
+exports.force = function(lazy) {
+  return lazy[2]();
 };
