@@ -28,6 +28,9 @@ foreign import defer :: forall a. (Unit -> a) -> Lazy a
 -- | Force evaluation of a `Lazy` value.
 foreign import force :: forall a. Lazy a -> a
 
+-- | Force evaluation without saving the new value.
+foreign import peek :: forall a. Lazy a -> a
+
 instance semiringLazy :: Semiring a => Semiring (Lazy a) where
   add a b = defer \_ -> force a + force b
   zero = defer \_ -> zero
